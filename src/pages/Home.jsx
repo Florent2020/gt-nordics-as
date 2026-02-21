@@ -136,7 +136,7 @@ export default function Home() {
           <Split>
             <SplitLeft>
               <SectionHeading
-                eyebrow="Why G.T Nordics"
+                eyebrow="Why G.T Nordics AS"
                 title="We build like uptime matters—because it does."
                 desc="In data centers, mistakes become outages. Our process is designed to reduce risk: clear engineering, controlled production, and disciplined testing."
               />
