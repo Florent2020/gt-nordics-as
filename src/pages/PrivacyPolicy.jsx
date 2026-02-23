@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 export default function PrivacyPolicy() {
-  const updated = "Last updated: 2026";
+  // const updated = "Last updated: 2026";
 
   const toc = [
     { label: "Overview", href: "#overview" },
@@ -382,37 +382,37 @@ const Sub = styled.p`
   line-height: 1.7;
 `;
 
-const MetaRow = styled.div`
-  margin-top: 18px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
+// const MetaRow = styled.div`
+//   margin-top: 18px;
+//   display: grid;
+//   grid-template-columns: repeat(3, 1fr);
+//   gap: 10px;
 
-  @media (max-width: 900px) {
-    grid-template-columns: 1fr;
-  }
-`;
+//   @media (max-width: 900px) {
+//     grid-template-columns: 1fr;
+//   }
+// `;
 
-const MetaItem = styled.div`
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(255, 255, 255, 0.04);
-  border-radius: 18px;
-  padding: 12px 14px;
-`;
+// const MetaItem = styled.div`
+//   border: 1px solid rgba(255, 255, 255, 0.12);
+//   background: rgba(255, 255, 255, 0.04);
+//   border-radius: 18px;
+//   padding: 12px 14px;
+// `;
 
-const MetaLabel = styled.div`
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: rgba(255, 255, 255, 0.6);
-  font-weight: 800;
-`;
+// const MetaLabel = styled.div`
+//   font-size: 12px;
+//   text-transform: uppercase;
+//   letter-spacing: 0.08em;
+//   color: rgba(255, 255, 255, 0.6);
+//   font-weight: 800;
+// `;
 
-const MetaValue = styled.div`
-  margin-top: 6px;
-  color: rgba(255, 255, 255, 0.9);
-  font-weight: 800;
-`;
+// const MetaValue = styled.div`
+//   margin-top: 6px;
+//   color: rgba(255, 255, 255, 0.9);
+//   font-weight: 800;
+// `;
 
 const Wrap = styled.div`
   padding: 26px 0 60px;
