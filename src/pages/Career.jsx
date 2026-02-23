@@ -2,7 +2,7 @@ import React, { useMemo, useState } from "react";
 import styled from "styled-components";
 import {
   Container,
-  Section,
+  // Section,
   SectionHeading,
   Card,
   Button,
@@ -156,6 +156,12 @@ const TopActions = styled.div`
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
+`;
+
+const Section = styled.section`
+  padding: 60px 0;
+  position: relative;
+  background: radial-gradient(circle at top left, #111b2e, #0b1220 60%);
 `;
 
 const Grid = styled.div`

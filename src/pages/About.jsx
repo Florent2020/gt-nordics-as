@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import {
   Container,
-  Section,
+  // Section,
   SectionHeading,
   Card,
   Button,
@@ -148,6 +148,12 @@ const Actions = styled.div`
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
+`;
+
+const Section = styled.section`
+  padding: 60px 0;
+  position: relative;
+  background: radial-gradient(circle at top left, #111b2e, #0b1220 60%);
 `;
 
 const Grid = styled.div`

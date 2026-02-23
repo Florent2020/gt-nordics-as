@@ -37,20 +37,35 @@ export default function FooterGTNordics() {
           </section>
 
           {/* Certifications */}
-          <section className="gt-section">
+          <div className="gt-certStack">
             <h4 className="gt-heading">Certifications</h4>
-            <div className="gt-certStack">
-              <a href="/certifications/iso-9001" className="gt-certBtn">
-                ISO 9001
-              </a>
-              <a href="/certifications/iso-14001" className="gt-certBtn">
-                ISO 14001
-              </a>
-              <a href="/certifications/iso-45001" className="gt-certBtn">
-                ISO 45001
-              </a>
-            </div>
-          </section>
+            <a
+              href="/pdf/ISO-9001.pdf"
+              className="gt-certBtn"
+              target="_blank"
+              rel="noreferrer"
+            >
+              ISO 9001
+            </a>
+
+            <a
+              href="/pdf/ISO-14001.pdf"
+              className="gt-certBtn"
+              target="_blank"
+              rel="noreferrer"
+            >
+              ISO 14001
+            </a>
+
+            <a
+              href="/pdf/ISO-45001.pdf"
+              className="gt-certBtn"
+              target="_blank"
+              rel="noreferrer"
+            >
+              ISO 45001
+            </a>
+          </div>
 
           {/* Company */}
           <section className="gt-section">
@@ -127,7 +142,7 @@ export default function FooterGTNordics() {
             <div className="gt-followTitle">Follow Us</div>
             <div className="gt-socialRow">
               <a
-                href="https://facebook.com"
+                href="https://www.facebook.com/gtedas/?locale=nb_NO"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Facebook"
@@ -270,21 +285,44 @@ const css = `
   }
 
   .gt-certBtn{
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px 16px;
-    min-width: 140px;
-    border-radius: 6px;
-    text-decoration: none;
-    background: rgba(0, 170, 255, 0.6);
-    border: 1px solid rgba(92, 198, 255, 0.35);
-    color: rgba(255,255,255,0.95);
-    font-weight: 700;
-    letter-spacing: 0.4px;
-    transition: transform .15s ease, filter .15s ease;
-  }
-  .gt-certBtn:hover{ transform: translateY(-1px); filter: brightness(1.06); }
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  min-width: 170px;
+  border-radius: 999px;
+  text-decoration: none;
+
+  /* ✅ Matches glassy style */
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.14);
+  color: rgba(255,255,255,0.9);
+
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 12.5px;
+
+  box-shadow: 0 14px 45px rgba(0,0,0,0.28);
+  transition: transform .18s ease, filter .18s ease, background .18s ease, border-color .18s ease;
+}
+
+.gt-certBtn:hover{
+  transform: translateY(-2px);
+  filter: brightness(1.06);
+  background: linear-gradient(
+    135deg,
+    rgba(124,92,255,0.20),
+    rgba(45,212,191,0.14)
+  );
+  border-color: rgba(255,255,255,0.18);
+}
+
+.gt-certBtn:active{
+  transform: translateY(0px) scale(0.99);
+}
+  
 
   .gt-linkList{
     list-style: none;
@@ -294,12 +332,18 @@ const css = `
     gap: 10px;
   }
 
-  .gt-link{
-    color: #5cc6ff;
-    text-decoration: none;
-    font-weight: 600;
-    letter-spacing: 0.4px;
-  }
+.gt-link{
+  color: rgba(255,255,255,0.78);
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  transition: color .18s ease, filter .18s ease;
+}
+
+.gt-link:hover{
+  color: rgba(124,92,255,1);
+  filter: none;
+}
 
   .gt-contactBlock{
     display: grid;
@@ -344,6 +388,7 @@ const css = `
     display: flex;
     gap: 14px;
     align-items: center;
+    margin-top: 1rem;
   }
 
   .gt-socialBtn{

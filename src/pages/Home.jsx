@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import {
   Container,
-  Section,
+  // Section,
   SectionHeading,
   Button,
   Card,
@@ -153,8 +153,8 @@ export default function Home() {
                   <FiCheck /> Practical, service-friendly panel layouts
                 </li>
               </Bullets>
-              <Link to="/about">
-                <Button>
+              <Link to="/contact">
+                <Button style={{ marginTop: 20 }}>
                   Meet the team <FiArrowRight />
                 </Button>
               </Link>
@@ -238,6 +238,12 @@ const Hero = styled.section`
   background-position: center;
   padding: 100px 0;
   color: white;
+`;
+
+const Section = styled.section`
+  padding: 60px 0;
+  position: relative;
+  background: radial-gradient(circle at top left, #111b2e, #0b1220 60%);
 `;
 
 const HeroGrid = styled.div`

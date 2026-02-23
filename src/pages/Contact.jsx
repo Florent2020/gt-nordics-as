@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import {
   Container,
-  Section,
+  // Section,
   SectionHeading,
   Card,
   Button,
@@ -365,11 +365,18 @@ export default function Contact() {
 
 const Top = styled.section`
   position: relative;
+  background: radial-gradient(circle at top left, #111b2e, #0b1220 60%);
   background-image: url(${heroImg});
   background-size: cover;
   background-position: center;
   padding: 170px 0;
   color: white;
+`;
+
+const Section = styled.section`
+  padding: 60px 0;
+  position: relative;
+  background: radial-gradient(circle at top left, #111b2e, #0b1220 60%);
 `;
 
 const Grid = styled.div`

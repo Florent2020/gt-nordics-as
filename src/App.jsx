@@ -10,6 +10,8 @@ import Services from "./pages/Services";
 import About from "./pages/About";
 import Career from "./pages/Career";
 import Contact from "./pages/Contact";
+import Transparency from "./pages/Transparency";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 
 const GlobalStyle = createGlobalStyle`
   :root{
@@ -67,6 +69,8 @@ export default function App() {
           <Route path="/about" element={<About />} />
           <Route path="/career" element={<Career />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/transparency-act" element={<Transparency />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Route>
       </Routes>

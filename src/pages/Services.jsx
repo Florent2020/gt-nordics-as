@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import {
   Container,
-  Section,
+  // Section,
   SectionHeading,
   Card,
   Button,
@@ -140,6 +140,12 @@ const TopActions = styled.div`
   flex-wrap: wrap;
 `;
 
+const Section = styled.section`
+  padding: 60px 0;
+  position: relative;
+  background: radial-gradient(circle at top left, #111b2e, #0b1220 60%);
+`;
+
 const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -179,6 +185,12 @@ const P = styled.p`
   margin: 10px 0 0;
   color: var(--muted);
   line-height: 1.7;
+
+  /* margin: 14px 0 0;
+    color: var(--muted);
+    font-size: 17px;
+    line-height: 1.75;
+    max-width: 58ch; */
 `;
 
 const Process = styled.div`

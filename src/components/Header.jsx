@@ -33,9 +33,15 @@ export default function Header() {
       <Bar>
         <Container>
           <Inner>
-            <Logo to="/">
-              <img src={logoImg} alt="logo" />
-            </Logo>
+            <a
+              href="/"
+              className="gt-brandRow"
+              aria-label="G.T Nordics AS Home"
+            >
+              <Logo to="/">
+                <img src={logoImg} alt="logo" />
+              </Logo>
+            </a>
 
             {/* <Logo to="/" onClick={close}>
               <img src={logoImg} alt="logo" />

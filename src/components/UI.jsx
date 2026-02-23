@@ -65,16 +65,22 @@ const Eyebrow = styled.div`
 
 const Title = styled.h2`
   margin: 14px 0 0;
-  font-size: clamp(26px, 3.2vw, 42px);
+  font-size: clamp(34px, 4.6vw, 64px);
   line-height: 1.08;
   letter-spacing: -0.02em;
 `;
 
 const Desc = styled.p`
-  margin: 12px 0 0;
+  /* margin: 12px 0 0;
   color: var(--muted);
   font-size: 16px;
-  line-height: 1.7;
+  line-height: 1.7; */
+
+  margin: 14px 0 0;
+    color: var(--muted);
+    font-size: 17px;
+    line-height: 1.75;
+    max-width: 67ch;
 `;
 
 const Btn = styled.button`
