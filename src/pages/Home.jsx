@@ -903,11 +903,6 @@ export default function Home() {
                   </CertBtn>
                 ))}
               </CertRow>
-
-              <SmallNote>
-                Tip: place your PDFs in <CodeTag>public/pdf/</CodeTag> and match
-                the links above.
-              </SmallNote>
             </SplitLeft>
 
             <SplitRight>
