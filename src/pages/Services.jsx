@@ -308,11 +308,6 @@ export default function Services() {
                   </Button>
                 </Link>
               </BtnRow>
-
-              <TinyHint>
-                Put your file here:{" "}
-                <Code>/public/pdf/GT-Nordics-AS-Quality-HSE-Policy.pdf</Code>
-              </TinyHint>
             </SplitLeft>
 
             <SplitRight>
@@ -752,21 +747,6 @@ const GhostLink = styled.a`
     transform: translateY(-1px);
     filter: brightness(1.06);
   }
-`;
-
-const TinyHint = styled.div`
-  margin-top: 10px;
-  color: rgba(255, 255, 255, 0.58);
-  font-size: 13px;
-  line-height: 1.6;
-`;
-
-const Code = styled.code`
-  padding: 2px 7px;
-  border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(0, 0, 0, 0.18);
-  color: rgba(255, 255, 255, 0.86);
 `;
 
 const HighlightCard = styled.div`
