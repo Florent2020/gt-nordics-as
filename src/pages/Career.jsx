@@ -18,7 +18,7 @@ import {
   FiCheck,
   FiX,
 } from "react-icons/fi";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 import heroImg from "../assets/career-banner-2.png";
 
