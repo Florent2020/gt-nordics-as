@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React, { useMemo, useRef, useState } from "react";
 import styled from "styled-components";
+import { Container, SectionHeading, Card, Button } from "../components/UI";
 import {
-  Container,
-  // Section,
-  SectionHeading,
-  Card,
-  Button,
-} from "../components/UI";
-import { FiMail, FiPhone, FiMapPin, FiSend } from "react-icons/fi";
+  FiMail,
+  FiPhone,
+  FiMapPin,
+  FiSend,
+  FiChevronDown,
+  FiCheck,
+  FiArrowRight,
+} from "react-icons/fi";
 
 import heroImg from "../assets/contact-banner.png";
 
@@ -21,16 +23,20 @@ export default function Contact() {
     e.currentTarget.reset();
   }
 
-  const locations = [
-    {
-      name: "G.T Nordics AS – HQ",
-      address: "Heddalsvegen 11, Bygg 55, 3674 Notodden",
-    },
-    {
-      name: "G.T Nordics AS – Office",
-      address: "Bjørn Farmanns gate 3, 3678 Notodden",
-    },
-  ];
+  // Locations + map
+  const locations = useMemo(
+    () => [
+      {
+        name: "G.T Nordics AS – HQ (Department 1 & 3)",
+        address: "Heddalsvegen 11, Bygg 55, 3674 Notodden",
+      },
+      {
+        name: "G.T Nordics AS – Office (Department 2)",
+        address: "Bjørn Farmanns gate 3, 3678 Notodden",
+      },
+    ],
+    [],
+  );
 
   const [activeLocation, setActiveLocation] = useState(locations[0]);
 
@@ -38,85 +44,89 @@ export default function Contact() {
     activeLocation.address,
   )}&output=embed`;
 
-  const team = [
-    {
-      name: "Trond Wabakken",
-      role: "CEO",
-      phone: "+47 90 61 46 50",
-      email: "trond.wabakken@gted.no",
-      image: "/images/team/trond.png",
-    },
-    {
-      name: "Giovanni Pilla",
-      role: "Production Director",
-      phone: "+47 99 26 88 92",
-      email: "giovanni.pilla@gted.no",
-      image: "/images/team/giovanni.png",
-    },
-    {
-      name: "Ingeborg Roe Schia",
-      role: "Human Resources",
-      phone: "+47 95 16 94 91",
-      email: "ingeborg.roe.schia@gted.no",
-      image: "/images/team/ingeborg.png",
-    },
-    {
-      name: "Erlend Holberg",
-      role: "HSE",
-      phone: "+47 99 36 33 20",
-      email: "erlend.holberg@gted.no",
-      image: "/images/team/erlend.png",
-    },
-    {
-      name: "Espen Etholm",
-      role: "Design & Engineering",
-      phone: "+47 92 20 75 06",
-      email: "espen.etholm@gted.no",
-      image: "/images/team/espen.png",
-    },
-    {
-      name: "Sondre Flåten",
-      role: "Production Supervisor department 1",
-      phone: "+47 99 37 66 97",
-      email: "sondre.flaten@gted.no",
-      image: "/images/team/sondre.png",
-    },
-    {
-      name: "Alexander Stordal",
-      role: "Secondary Production Supervisor department 1",
-      phone: "+47 47 36 03 00",
-      email: "alexander.stordal@gted.no",
-      image: "/images/team/alexander.png",
-    },
-    {
-      name: "Anders Huneide",
-      role: "Production Supervisor department 2",
-      phone: "+47 41 67 50 22",
-      email: "anders.huneide@gted.no",
-      image: "/images/team/anders.png",
-    },
-    {
-      name: "Luca Cafaro",
-      role: "Electrics Supervisor department 2",
-      phone: "+47 48 92 88 20",
-      email: "luca.cafaro@gted.no",
-      image: "/images/team/luca.png",
-    },
-    {
-      name: "Marius Karlberg",
-      role: "Logistic/Mechanical Supervisor department 2",
-      phone: "+47 45 86 20 97",
-      email: "marius.karlberg@gted.no",
-      image: "/images/team/marius.png",
-    },
-    {
-      name: "Frode Wabakken",
-      role: "Production Supervisor mechanical assembly department 3",
-      phone: "+47 90 59 39 44",
-      email: "frode.wabakken@gted.no",
-      image: "/images/team/frode.png",
-    },
-  ];
+  // Team
+  const team = useMemo(
+    () => [
+      {
+        name: "Trond Wabakken",
+        role: "CEO",
+        phone: "+47 90 61 46 50",
+        email: "trond.wabakken@gted.no",
+        image: "/images/team/trond.png",
+      },
+      {
+        name: "Giovanni Pilla",
+        role: "Production Director",
+        phone: "+47 99 26 88 92",
+        email: "giovanni.pilla@gted.no",
+        image: "/images/team/giovanni.png",
+      },
+      {
+        name: "Ingeborg Roe Schia",
+        role: "Human Resources",
+        phone: "+47 95 16 94 91",
+        email: "ingeborg.roe.schia@gted.no",
+        image: "/images/team/ingeborg.png",
+      },
+      {
+        name: "Erlend Holberg",
+        role: "HSE",
+        phone: "+47 99 36 33 20",
+        email: "erlend.holberg@gted.no",
+        image: "/images/team/erlend.png",
+      },
+      {
+        name: "Espen Etholm",
+        role: "Design & Engineering",
+        phone: "+47 92 20 75 06",
+        email: "espen.etholm@gted.no",
+        image: "/images/team/espen.png",
+      },
+      {
+        name: "Sondre Flåten",
+        role: "Production Supervisor department 1",
+        phone: "+47 99 37 66 97",
+        email: "sondre.flaten@gted.no",
+        image: "/images/team/sondre.png",
+      },
+      {
+        name: "Alexander Stordal",
+        role: "Secondary Production Supervisor department 1",
+        phone: "+47 47 36 03 00",
+        email: "alexander.stordal@gted.no",
+        image: "/images/team/alexander.png",
+      },
+      {
+        name: "Anders Huneide",
+        role: "Production Supervisor department 2",
+        phone: "+47 41 67 50 22",
+        email: "anders.huneide@gted.no",
+        image: "/images/team/anders.png",
+      },
+      {
+        name: "Luca Cafaro",
+        role: "Electrics Supervisor department 2",
+        phone: "+47 48 92 88 20",
+        email: "luca.cafaro@gted.no",
+        image: "/images/team/luca.png",
+      },
+      {
+        name: "Marius Karlberg",
+        role: "Logistic/Mechanical Supervisor department 2",
+        phone: "+47 45 86 20 97",
+        email: "marius.karlberg@gted.no",
+        image: "/images/team/marius.png",
+      },
+      {
+        name: "Frode Wabakken",
+        role: "Production Supervisor mechanical assembly department 3",
+        phone: "+47 90 59 39 44",
+        email: "frode.wabakken@gted.no",
+        image: "/images/team/frode.png",
+      },
+    ],
+    [],
+  );
 
   const initials = (fullName = "") =>
     fullName
@@ -126,8 +136,29 @@ export default function Contact() {
       .map((w) => w[0]?.toUpperCase())
       .join("");
 
+  // Custom selects (dark dropdown)
+  const topicOptions = useMemo(
+    () => [
+      "Quote request",
+      "Engineering / drawings",
+      "Production / capacity",
+      "Documentation / FAT",
+      "Other",
+    ],
+    [],
+  );
+
+  const timelineOptions = useMemo(
+    () => ["ASAP", "1–2 weeks", "1 month", "2–3 months", "Later"],
+    [],
+  );
+
+  const [topic, setTopic] = useState("");
+  const [timeline, setTimeline] = useState("");
+
   return (
     <>
+      {/* HERO */}
       <Top>
         <Container>
           <SectionHeading
@@ -138,31 +169,76 @@ export default function Contact() {
         </Container>
       </Top>
 
+      {/* CONTACT + FORM */}
       <Section>
         <Container>
           <Grid>
             <Card>
               <CardTitle>Contact details</CardTitle>
+
+              <TopInfoRow>
+                <TopInfoPill>
+                  <PillIcon>
+                    <FiMail />
+                  </PillIcon>
+                  <div>
+                    <PillLabel>Email</PillLabel>
+                    <PillValue as="a" href="mailto:postmottak@gted.no">
+                      postmottak@gted.no
+                    </PillValue>
+                  </div>
+                </TopInfoPill>
+
+                <TopInfoPill>
+                  <PillIcon>
+                    <FiPhone />
+                  </PillIcon>
+                  <div>
+                    <PillLabel>Phone</PillLabel>
+                    <PillValue as="a" href="tel:+4735901440">
+                      35 90 14 40
+                    </PillValue>
+                  </div>
+                </TopInfoPill>
+              </TopInfoRow>
+
+              <DeptGrid>
+                <DeptCard>
+                  <DeptBadge>
+                    <FiMapPin /> Department 1 & 3
+                  </DeptBadge>
+                  <DeptText>
+                    Heddalsvegen 11,
+                    <br />
+                    Bygg 55
+                  </DeptText>
+                </DeptCard>
+
+                <DeptCard>
+                  <DeptBadge>
+                    <FiMapPin /> Department 2
+                  </DeptBadge>
+                  <DeptText>
+                    Bjørn Farmanns
+                    <br />
+                    gate 3
+                  </DeptText>
+                </DeptCard>
+              </DeptGrid>
+
               <Info>
                 <li>
                   <FiMapPin />
                   <div>
-                    <b>Address</b>
+                    <b>Main address</b>
                     <span>Heddalsvegen 11, Bygg 55, 3674 Notodden</span>
                   </div>
                 </li>
                 <li>
-                  <FiMail />
+                  <FiMapPin />
                   <div>
-                    <b>Email</b>
-                    <a href="mailto:postmottak@gted.no">postmottak@gted.no</a>
-                  </div>
-                </li>
-                <li>
-                  <FiPhone />
-                  <div>
-                    <b>Phone</b>
-                    <a href="tel:+4735901440">35 90 14 40</a>
+                    <b>Department 2</b>
+                    <span>Bjørn Farmanns gate 3, 3678 Notodden</span>
                   </div>
                 </li>
               </Info>
@@ -175,18 +251,42 @@ export default function Contact() {
 
             <Card>
               <CardTitle>Send a message</CardTitle>
+
               <Form onSubmit={onSubmit}>
                 <Row>
                   <Field>
                     <label>Name</label>
                     <input required placeholder="Your name" />
                   </Field>
+
                   <Field>
                     <label>Email</label>
                     <input
                       type="email"
                       required
                       placeholder="you@company.com"
+                    />
+                  </Field>
+                </Row>
+
+                <Row>
+                  <Field>
+                    <label>Topic</label>
+                    <DarkSelect
+                      placeholder="Select topic"
+                      value={topic}
+                      onChange={setTopic}
+                      options={topicOptions}
+                    />
+                  </Field>
+
+                  <Field>
+                    <label>Desired timeline</label>
+                    <DarkSelect
+                      placeholder="Select timeline"
+                      value={timeline}
+                      onChange={setTimeline}
+                      options={timelineOptions}
                     />
                   </Field>
                 </Row>
@@ -219,8 +319,8 @@ export default function Contact() {
                     )}
                   </Button>
                   <Small>
-                    This form is UI-only. Hook it up to your backend/email
-                    service when ready.
+                    This form is UI-only for now. We’ll hook it to EmailJS /
+                    backend later.
                   </Small>
                 </Actions>
               </Form>
@@ -229,7 +329,86 @@ export default function Contact() {
         </Container>
       </Section>
 
-      {/* MAP / LOCATIONS SECTION */}
+      {/* GUIDANCE SECTION (your screenshot) */}
+      <Section>
+        <Container>
+          <GuideGrid>
+            <GuideCard>
+              <GuideTitle>
+                <GuideIcon>
+                  <FiCheck />
+                </GuideIcon>
+                What to include
+              </GuideTitle>
+
+              <GuideList>
+                <li>Scope (what you need built and why)</li>
+                <li>Standards / requirements (if any)</li>
+                <li>Timeline and delivery expectations</li>
+                <li>Interfaces (UPS, generator, loads, I/O, etc.)</li>
+                <li>Preferred documentation format / handover needs</li>
+              </GuideList>
+
+              <GuideNote>
+                The more details you share early, the faster we can give a clear
+                answer.
+              </GuideNote>
+            </GuideCard>
+
+            <GuideCard>
+              <GuideTitle>
+                <GuideIcon>
+                  <FiCheck />
+                </GuideIcon>
+                What happens next
+              </GuideTitle>
+
+              <NextWrap>
+                {[
+                  [
+                    "1",
+                    "We review your message",
+                    "We route it to the right team member.",
+                  ],
+                  [
+                    "2",
+                    "Quick clarification",
+                    "If needed, we ask for missing details.",
+                  ],
+                  [
+                    "3",
+                    "Next steps",
+                    "You get scope feedback and a clear action plan.",
+                  ],
+                ].map(([n, t, d]) => (
+                  <NextItem key={n}>
+                    <NextNo>{n}</NextNo>
+                    <div>
+                      <NextTitle>{t}</NextTitle>
+                      <NextDesc>{d}</NextDesc>
+                    </div>
+                  </NextItem>
+                ))}
+              </NextWrap>
+
+              <GuideBtnRow>
+                <Button
+                  type="button"
+                  variant="ghost"
+                  onClick={() => {
+                    const el = document.querySelector("#team");
+                    el?.scrollIntoView({ behavior: "smooth", block: "start" });
+                  }}
+                >
+                  Contact a person <FiArrowRight />
+                </Button>
+              </GuideBtnRow>
+            </GuideCard>
+          </GuideGrid>
+        </Container>
+      </Section>
+
+      {/* MAP / LOCATIONS */}
       <Section>
         <Container>
           <LocationsWrap>
@@ -304,10 +483,10 @@ export default function Contact() {
         </Container>
       </Section>
 
-      {/* MEET OUR TEAM SECTION */}
+      {/* TEAM */}
       <Section>
         <Container>
-          <TeamWrap>
+          <TeamWrap id="team">
             <TeamHeader>
               <div>
                 <TeamEyebrow>Meet our team</TeamEyebrow>
@@ -363,6 +542,66 @@ export default function Contact() {
   );
 }
 
+/* =========================
+   Dark custom select
+========================= */
+
+function DarkSelect({ placeholder, value, onChange, options = [] }) {
+  const [open, setOpen] = useState(false);
+  const rootRef = useRef(null);
+
+  React.useEffect(() => {
+    function onDocClick(e) {
+      if (!rootRef.current) return;
+      if (!rootRef.current.contains(e.target)) setOpen(false);
+    }
+    document.addEventListener("mousedown", onDocClick);
+    return () => document.removeEventListener("mousedown", onDocClick);
+  }, []);
+
+  const display = value || placeholder;
+
+  return (
+    <SelectRoot ref={rootRef}>
+      <SelectButton
+        type="button"
+        onClick={() => setOpen((s) => !s)}
+        $hasValue={!!value}
+        aria-expanded={open}
+      >
+        <span>{display}</span>
+        <FiChevronDown />
+      </SelectButton>
+
+      {open && (
+        <SelectMenu>
+          {options.map((opt) => {
+            const active = opt === value;
+            return (
+              <SelectOption
+                key={opt}
+                type="button"
+                onClick={() => {
+                  onChange(opt);
+                  setOpen(false);
+                }}
+                $active={active}
+              >
+                <span>{opt}</span>
+                {active && <FiCheck />}
+              </SelectOption>
+            );
+          })}
+        </SelectMenu>
+      )}
+    </SelectRoot>
+  );
+}
+
+/* =========================
+   STYLES
+========================= */
+
 const Top = styled.section`
   position: relative;
   background: radial-gradient(circle at top left, #111b2e, #0b1220 60%);
@@ -394,6 +633,113 @@ const CardTitle = styled.h3`
   font-size: 18px;
   letter-spacing: -0.02em;
 `;
+
+/* ====== Contact details: top pills + dept cards ====== */
+
+const TopInfoRow = styled.div`
+  margin-top: 14px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+
+  @media (max-width: 650px) {
+    grid-template-columns: 1fr;
+  }
+`;
+
+const TopInfoPill = styled.div`
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  padding: 12px;
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 12px;
+  align-items: center;
+`;
+
+const PillIcon = styled.div`
+  width: 44px;
+  height: 44px;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: linear-gradient(
+    135deg,
+    rgba(124, 92, 255, 0.25),
+    rgba(45, 212, 191, 0.18)
+  );
+  svg {
+    opacity: 0.95;
+  }
+`;
+
+const PillLabel = styled.div`
+  color: var(--muted);
+  font-weight: 800;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+`;
+
+const PillValue = styled.div`
+  margin-top: 4px;
+  color: rgba(255, 255, 255, 0.92);
+  font-weight: 900;
+  text-decoration: none;
+
+  &:hover {
+    color: rgba(124, 92, 255, 1);
+    text-decoration: underline;
+  }
+`;
+
+const DeptGrid = styled.div`
+  margin-top: 12px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+
+  @media (max-width: 650px) {
+    grid-template-columns: 1fr;
+  }
+`;
+
+const DeptCard = styled.div`
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background:
+    radial-gradient(
+      520px 140px at 20% 10%,
+      rgba(124, 92, 255, 0.16),
+      transparent 60%
+    ),
+    rgba(255, 255, 255, 0.04);
+  padding: 14px;
+`;
+
+const DeptBadge = styled.div`
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  padding: 8px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.88);
+  font-weight: 900;
+  font-size: 13px;
+`;
+
+const DeptText = styled.div`
+  margin-top: 10px;
+  color: var(--muted);
+  line-height: 1.65;
+  font-weight: 700;
+`;
+
+/* ====== Info list ====== */
 
 const Info = styled.ul`
   list-style: none;
@@ -430,6 +776,8 @@ const Note = styled.p`
   color: var(--muted);
   line-height: 1.75;
 `;
+
+/* ====== Form ====== */
 
 const Form = styled.form`
   margin-top: 14px;
@@ -471,6 +819,11 @@ const Field = styled.div`
       filter 0.18s ease;
   }
 
+  input::placeholder,
+  textarea::placeholder {
+    color: rgba(255, 255, 255, 0.48);
+  }
+
   input:focus,
   textarea:focus {
     border-color: rgba(124, 92, 255, 0.55);
@@ -494,6 +847,221 @@ const Small = styled.div`
   color: var(--muted);
   font-size: 13px;
 `;
+
+/* ====== Dark Select ====== */
+
+const SelectRoot = styled.div`
+  position: relative;
+`;
+
+const SelectButton = styled.button`
+  width: 100%;
+  padding: 12px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.03);
+  color: ${({ $hasValue }) =>
+    $hasValue ? "rgba(255,255,255,.92)" : "rgba(255,255,255,.48)"};
+  outline: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  transition:
+    border-color 0.18s ease,
+    filter 0.18s ease;
+
+  span {
+    text-align: left;
+    font-weight: 700;
+  }
+
+  svg {
+    opacity: 0.9;
+    flex: 0 0 auto;
+  }
+
+  &:hover {
+    filter: brightness(1.05);
+  }
+
+  &:focus-visible {
+    border-color: rgba(124, 92, 255, 0.55);
+  }
+`;
+
+/* gradient border wrapper */
+const SelectMenu = styled.div`
+  position: absolute;
+  z-index: 50;
+  left: 0;
+  right: 0;
+  top: calc(100% + 10px);
+  border-radius: 16px;
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    rgba(124, 92, 255, 0.7),
+    rgba(45, 212, 191, 0.55)
+  );
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.55);
+`;
+
+const SelectOption = styled.button`
+  width: 100%;
+  border: 0;
+  cursor: pointer;
+  background: ${({ $active }) =>
+    $active ? "rgba(255,255,255,.06)" : "rgba(10,14,24,.95)"};
+  color: rgba(255, 255, 255, 0.92);
+  padding: 12px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+
+  &:first-child {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+  }
+  &:last-child {
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+  }
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.06);
+  }
+
+  span {
+    text-align: left;
+    font-weight: 800;
+  }
+
+  svg {
+    opacity: 0.9;
+  }
+`;
+
+/* ====== Guidance section ====== */
+
+const GuideGrid = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+
+  @media (max-width: 980px) {
+    grid-template-columns: 1fr;
+  }
+`;
+
+const GuideCard = styled.div`
+  border-radius: 26px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  padding: 20px;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.35);
+`;
+
+const GuideTitle = styled.div`
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 950;
+  letter-spacing: -0.02em;
+  font-size: 18px;
+`;
+
+const GuideIcon = styled.span`
+  width: 34px;
+  height: 34px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: linear-gradient(
+    135deg,
+    rgba(124, 92, 255, 0.25),
+    rgba(45, 212, 191, 0.18)
+  );
+`;
+
+const GuideList = styled.ul`
+  margin: 14px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 10px;
+
+  li {
+    color: var(--muted);
+    line-height: 1.7;
+    position: relative;
+    padding-left: 22px;
+  }
+
+  li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: rgba(45, 212, 191, 0.95);
+    font-weight: 900;
+  }
+`;
+
+const GuideNote = styled.p`
+  margin: 14px 0 0;
+  color: var(--muted);
+  line-height: 1.75;
+  font-size: 14px;
+`;
+
+const NextWrap = styled.div`
+  margin-top: 14px;
+  display: grid;
+  gap: 10px;
+`;
+
+const NextItem = styled.div`
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
+  padding: 12px;
+  display: grid;
+  grid-template-columns: 54px 1fr;
+  gap: 12px;
+`;
+
+const NextNo = styled.div`
+  width: 54px;
+  height: 46px;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  font-weight: 950;
+  letter-spacing: -0.03em;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+`;
+
+const NextTitle = styled.div`
+  font-weight: 950;
+  letter-spacing: -0.02em;
+`;
+
+const NextDesc = styled.div`
+  margin-top: 6px;
+  color: var(--muted);
+  line-height: 1.6;
+`;
+
+const GuideBtnRow = styled.div`
+  margin-top: 14px;
+`;
+
+/* ====== Locations / Map ====== */
 
 const LocationsWrap = styled.div`
   border: 1px solid rgba(255, 255, 255, 0.12);
@@ -673,7 +1241,7 @@ const MapFrame = styled.iframe`
   }
 `;
 
-////// TEAM
+/* ====== Team ====== */
 
 const TeamWrap = styled.div`
   border: 1px solid rgba(255, 255, 255, 0.12);
@@ -756,13 +1324,6 @@ const TeamCard = styled.div`
     border-color 0.18s ease;
   text-align: center;
 
-  /* &:hover {
-    transform: translateY(-2px);
-    filter: brightness(1.06);
-    background: rgba(255, 255, 255, 0.055);
-    border-color: rgba(255, 255, 255, 0.18);
-  } */
-
   &:hover {
     transform: translateY(-4px);
     box-shadow: 0 40px 120px rgba(0, 0, 0, 0.45);
@@ -790,7 +1351,6 @@ const AvatarImg = styled.img`
   object-fit: cover;
   border: 1px solid rgba(255, 255, 255, 0.35);
   background: rgba(0, 0, 0, 0.2);
-
   transition: transform 0.25s ease;
 
   ${TeamCard}:hover & {
